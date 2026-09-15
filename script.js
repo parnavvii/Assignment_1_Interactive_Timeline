@@ -1,0 +1,33 @@
+const artifacts = [
+{title:"Bhimbetka Rock Paintings",era:"PREHISTORIC • MADHYA PRADESH",period:"c. 10,000 BCE–early historic period",img:"https://commons.wikimedia.org/wiki/Special:FilePath/Cave%20Painting%20at%20Bhimbetika%20Rock%20Shelter.jpg",context:"The rock shelters of Bhimbetka preserve layers of human activity and paintings made over long spans of time. Figures of animals, people, hunting and group activities show how early communities used images to record and communicate aspects of life.",why:"Bhimbetka demonstrates that visual storytelling in the Indian subcontinent has extremely deep roots. It also shows how art can survive as part of a landscape rather than as a portable object.",tags:["Rock art","Animals","Community life"]},
+{title:"The Dancing Girl",era:"INDUS VALLEY CIVILISATION • BRONZE",period:"c. 2300–1750 BCE",img:"https://commons.wikimedia.org/wiki/Special:FilePath/Dancing%20girl%20of%20Mohenjo-daro.jpg",context:"This small bronze statuette from Mohenjo-daro is associated with the Indus Valley Civilisation. Its relaxed pose, ornaments and confident stance demonstrate sophisticated metalworking and an interest in representing the human figure.",why:"The figure is one of the best-known objects of Indus art and provides a striking example of how a tiny sculpture can communicate personality and movement.",tags:["Bronze","Mohenjo-daro","Human figure"]},
+{title:"Lion Capital of Ashoka",era:"MAURYAN PERIOD • SARNATH",period:"3rd century BCE",img:"https://commons.wikimedia.org/wiki/Special:FilePath/Lion%20Capital%20of%20Ashoka.jpg",context:"The capital was created during the reign of Ashoka and originally stood atop an Ashokan pillar at Sarnath. Its polished sandstone, animal imagery and symbolic wheel are associated with imperial and Buddhist visual language.",why:"The four-lion capital became a powerful modern symbol of India and is used as the State Emblem, connecting ancient sculpture with contemporary national identity.",tags:["Stone","Mauryan","Symbolism"]},
+{title:"Ajanta Cave Paintings",era:"ANCIENT • MAHARASHTRA",period:"c. 2nd century BCE–6th century CE",img:"https://commons.wikimedia.org/wiki/Special:FilePath/Paintings%20of%20Ajanta%20Caves.jpg",context:"Ajanta's rock-cut Buddhist caves contain murals portraying Jataka stories, courtly scenes, human figures, animals and ornamental details. The paintings reveal sophisticated composition, gesture, colour and narrative technique.",why:"Ajanta is a major landmark of Indian mural painting and shows how architecture, religion and visual storytelling were integrated into a single environment.",tags:["Murals","Buddhist art","Narrative"]},
+{title:"Chola Nataraja",era:"CHOLA PERIOD • TAMIL NADU",period:"11th–12th century CE",img:"https://commons.wikimedia.org/wiki/Special:FilePath/Nataraja%2C%20Chola%20period%20bronze%2C%2011th%20century%2C%20Government%20Museum%2C%20Chennai%20%285%29.jpg",context:"Chola-period bronzes are celebrated for their technical refinement and dynamic poses. Nataraja represents Shiva as the cosmic dancer, with the circular aureole framing the figure and the pose balancing movement with compositional stability.",why:"The sculpture is an iconic example of South Indian bronze casting and shows how religious meaning, engineering skill and aesthetic balance can coexist in one object.",tags:["Bronze","Chola","Nataraja"]},
+{title:"Mughal Miniature Painting",era:"MUGHAL PERIOD • MANUSCRIPT ART",period:"c. 16th century CE",img:"https://commons.wikimedia.org/wiki/Special:FilePath/Mughal%20miniature%20painting%20from%20an%20Akbarnama%20manuscript%20depicting%20a%20tower%20of%20skulls%20being%20built%20with%20the%20remains%20of%20Hemu%27s%20soldiers%20and%20supporters%2C%20circa%201590.webp",context:"Mughal manuscript workshops developed a highly detailed miniature tradition. Persianate artistic conventions interacted with Indian subjects, architecture, flora, fauna and portraiture, creating dense visual narratives.",why:"Mughal miniatures illustrate how artistic traditions can cross cultural boundaries and develop into a distinctive new visual language.",tags:["Miniature","Manuscript","Court art"]},
+{title:"Madhubani / Mithila Painting",era:"FOLK • MITHILA REGION",period:"Traditional living art form",img:"https://commons.wikimedia.org/wiki/Special:FilePath/Madhubani%20painting.jpg",context:"Madhubani, also called Mithila painting, is associated with the Mithila region of Bihar. Traditional imagery includes plants, animals, deities and scenes connected to social and ceremonial life, often using strong outlines and dense patterning.",why:"Madhubani demonstrates how a regional art tradition can preserve community identity while continuing to evolve in contemporary forms.",tags:["Folk art","Bihar","Pattern"]},
+{title:"Warli Painting",era:"FOLK • WARLI TRADITION",period:"Traditional living art form • Maharashtra",img:"https://commons.wikimedia.org/wiki/Special:FilePath/Warli%20painting.jpg",context:"Warli painting uses simplified geometric human figures, animals, houses and scenes of work and celebration. Circular compositions and rhythmic figures often express communal activities such as dancing.",why:"Warli shows how a limited visual vocabulary can create expressive narratives. Its geometry makes it especially useful for understanding the relationship between form, rhythm and storytelling.",tags:["Folk art","Maharashtra","Geometry"]}
+];
+
+function openModal(i){
+ const a=artifacts[i];
+ document.getElementById("modalImg").src=a.img;
+ document.getElementById("modalTitle").textContent=a.title;
+ document.getElementById("modalEra").textContent=a.era;
+ document.getElementById("modalPeriod").textContent=a.period;
+ document.getElementById("modalContext").textContent=a.context;
+ document.getElementById("modalWhy").textContent=a.why;
+ document.getElementById("modalTags").innerHTML=a.tags.map(t=>`<span>${t}</span>`).join("");
+ document.getElementById("modal").classList.add("show");
+ document.getElementById("modal").setAttribute("aria-hidden","false");
+}
+function closeModal(){document.getElementById("modal").classList.remove("show");document.getElementById("modal").setAttribute("aria-hidden","true")}
+document.getElementById("modal").addEventListener("click",e=>{if(e.target.id==="modal")closeModal()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
+document.querySelectorAll(".filter").forEach(btn=>{
+ btn.addEventListener("click",()=>{
+  document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));btn.classList.add("active");
+  const f=btn.dataset.filter;
+  document.querySelectorAll(".event").forEach(e=>e.style.display=(f==="all"||e.dataset.era===f)?"block":"none");
+ });
+});

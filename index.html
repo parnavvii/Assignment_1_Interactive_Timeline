@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indian Art Through Time — TimelineJS</title>
+<link rel="stylesheet" href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
+<style>
+body{margin:0;background:#f4eee4;font-family:Arial,sans-serif}
+#intro{padding:28px 7%;background:#f4eee4;text-align:center}
+#intro h1{font-family:Georgia,serif;font-size:42px;margin:5px 0 10px;color:#2b211a}
+#intro p{max-width:800px;margin:auto;line-height:1.7;color:#665a50}
+#timeline-embed{width:100%;height:720px}
+.note{padding:20px 7%;font-size:13px;color:#665a50;background:#eee4d5}
+.note strong{color:#2b211a}
+</style>
+</head>
+<body>
+<section id="intro">
+<div style="letter-spacing:3px;font-size:12px;color:#9b4d2f;font-weight:bold">CO1 • INTERACTIVE DIGITAL TIMELINE</div>
+<h1>Indian Art Through Time</h1>
+<p>Explore major milestones in Indian art from prehistoric rock shelters and the Indus Valley Civilisation to classical sculpture, Mughal miniature painting and living regional traditions.</p>
+</section>
+
+<div id="timeline-embed"></div>
+
+<div class="note">
+<strong>How to interact:</strong> Drag or use the arrows to move through time. Select each milestone to view its artifact, period, location and historical context.
+<br><br>
+<strong>Tool used:</strong> TimelineJS by Knight Lab. Images are linked from Wikimedia Commons.
+</div>
+
+<script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
+<script>
+const timelineData = {
+  title: {
+    text: {
+      headline: "Indian Art Through Time",
+      text: "An interactive journey through eight important examples of Indian art and visual culture."
+    }
+  },
+  events: [
+    {
+      start_date: {year: -10000},
+      media: {
+        url: "https://commons.wikimedia.org/wiki/Special:FilePath/Cave%20Painting%20at%20Bhimbetika%20Rock%20Shelter.jpg",
+        caption: "Bhimbetka rock paintings — Wikimedia Commons",
+        credit: "Wikimedia Commons"
+      },
+      text: {
+        headline: "Bhimbetka Rock Paintings",
+        text: "<p><b>Period:</b> c. 10,000 BCE–early historic period<br><b>Region:</b> Madhya Pradesh</p><p>The rock shelters of Bhimbetka preserve paintings made over long periods. Animals, people, hunting and community activities demonstrate early visual storytelling and the relationship between art and landscape.</p>"
+      }
+    },
+    {
+      start_date: {year: -2300},
+      media: {
+        url: "https://commons.wikimedia.org/wiki/Special:FilePath/Dancing%20girl%20of%20Mohenjo-daro.jpg",
+        caption: "The Dancing Girl — Wikimedia Commons",
+        credit: "Wikimedia Commons"
+      },
+      text: {
+        headline: "The Dancing Girl",
+        text: "<p><b>Period:</b> c. 2300–1750 BCE<br><b>Region:</b> Mohenjo-daro</p><p>This small bronze statuette from the Indus Valley Civilisation demonstrates sophisticated metalworking and a confident representation of the human figure.</p>"
+      }
+    },
+    {
+      start_date: {year: -250},
+      media: {
+        url: "https://commons.wikimedia.org/wiki/Special:FilePath/Lion%20Capital%20of%20Ashoka.jpg",
+        caption: "Lion Capital of Ashoka — Wikimedia Commons",
+        credit: "Wikimedia Commons"
+      },
+      text: {
+        headline: "Lion Capital of Ashoka",
+        text: "<p><b>Period:</b> 3rd century BCE<br><b>Location:</b> Sarnath</p><p>Created during the reign of Ashoka, the polished sandstone capital features four lions and symbolic imagery. It later became the basis of India's State Emblem.</p>"
+      }
+    },
+    {
+      start_date: {year: 450},
+      media: {
+        url: "https://commons.wikimedia.org/wiki/Special:FilePath/Paintings%20of%20Ajanta%20Caves.jpg",
+        caption: "Ajanta cave paintings — Wikimedia Commons",
+        credit: "Wikimedia Commons"
+      },
+      text: {
+        headline: "Ajanta Cave Paintings",
+        text: "<p><b>Period:</b> c. 2nd century BCE–6th century CE<br><b>Region:</b> Maharashtra</p><p>Ajanta's Buddhist murals portray Jataka narratives, courtly life, nature and expressive human figures. They demonstrate sophisticated composition and visual storytelling.</p>"
+      }
+    },
+    {
+      start_date: {year: 1100},
+      media: {
+        url: "https://commons.wikimedia.org/wiki/Special:FilePath/Nataraja%2C%20Chola%20period%20bronze%2C%2011th%20century%2C%20Government%20Museum%2C%20Chennai%20%285%29.jpg",
+        caption: "Chola Nataraja bronze — Wikimedia Commons",
+        credit: "Wikimedia Commons"
+      },
+      text: {
+        headline: "Chola Nataraja",
+        text: "<p><b>Period:</b> 11th–12th century CE<br><b>Region:</b> Tamil Nadu</p><p>The dynamic bronze image of Shiva as Nataraja balances movement and symmetry. It is celebrated for its technical refinement and expressive pose.</p>"
+      }
+    },
+    {
+      start_date: {year: 1590},
+      media: {
+        url: "https://commons.wikimedia.org/wiki/Special:FilePath/Mughal%20miniature%20painting%20from%20an%20Akbarnama%20manuscript%20depicting%20a%20tower%20of%20skulls%20being%20built%20with%20the%20remains%20of%20Hemu%27s%20soldiers%20and%20supporters%2C%20circa%201590.webp",
+        caption: "Mughal miniature painting — Wikimedia Commons",
+        credit: "Wikimedia Commons"
+      },
+      text: {
+        headline: "Mughal Miniature Painting",
+        text: "<p><b>Period:</b> c. 16th century CE<br><b>Context:</b> Mughal manuscript tradition</p><p>Mughal workshops developed highly detailed miniature painting by combining Persianate conventions with Indian subjects, architecture, flora, fauna and visual storytelling.</p>"
+      }
+    },
+    {
+      start_date: {year: 1800},
+      media: {
+        url: "https://commons.wikimedia.org/wiki/Special:FilePath/Madhubani%20painting.jpg",
+        caption: "Madhubani / Mithila painting — Wikimedia Commons",
+        credit: "Wikimedia Commons"
+      },
+      text: {
+        headline: "Madhubani / Mithila Painting",
+        text: "<p><b>Tradition:</b> Living folk art<br><b>Region:</b> Mithila, Bihar</p><p>Bold outlines, dense patterns and symbolic depictions of plants, animals, deities and social life characterize this regional painting tradition.</p>"
+      }
+    },
+    {
+      start_date: {year: 1900},
+      media: {
+        url: "https://commons.wikimedia.org/wiki/Special:FilePath/Warli%20painting.jpg",
+        caption: "Warli painting — Wikimedia Commons",
+        credit: "Wikimedia Commons"
+      },
+      text: {
+        headline: "Warli Painting",
+        text: "<p><b>Tradition:</b> Living folk art<br><b>Region:</b> Maharashtra</p><p>Warli painting uses simplified geometric figures to depict farming, rituals, animals, dancing and community life. Its visual language is minimal yet highly expressive.</p>"
+      }
+    }
+  ]
+};
+
+new TL.Timeline("timeline-embed", timelineData, {
+  timenav_position: "bottom",
+  scale_factor: 1.4,
+  initial_zoom: 1,
+  hash_bookmark: true,
+  start_at_end: false
+});
+</script>
+</body>
+</html>
